@@ -18,9 +18,12 @@ def send_data(request):
     if request.POST:
         url = request.POST.get('url')
         try:
-            data = PageData.objects.filter(url=url).latest('created_on')
+            data = PageData.objects.get(url=url, active=True)
         except:
-            data = fetch_using_url(url)
+            try:
+                data = PageData.objects.filter(url=url).last()
+            except:
+                data = fetch_using_url(url)
         else:
             data = { i: data.__dict__[i] for i in data.__dict__ if i in fields }
         return JsonResponse(data)
