@@ -19,4 +19,5 @@ from Fetch import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.search_page),
+    path('process_url', views.send_data),
 ]
