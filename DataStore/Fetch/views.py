@@ -15,6 +15,6 @@ def send_data(request):
             """Need to fetch from internet and update user and models accordingly"""
             data = {'status': 'Under Construction'}
         else:
-            data = { i: data.__dict__[i] for i in data.__dict if i in fields }
+            data = { i: data.__dict__[i] for i in data.__dict__ if i in fields }
         return JsonResponse(data)
     return JsonResponse({'status': 'Expecting a POST Request'})
