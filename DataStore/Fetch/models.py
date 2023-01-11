@@ -6,5 +6,4 @@ class PageData(models.Model):
     desc  = models.CharField(max_length=300)
     price = models.FloatField()
     created_on = models.DateTimeField(auto_now=True)
-    updated_on = models.DateTimeField(auto_now_add=True)
 
